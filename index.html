@@ -1,181 +1,314 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Nightfield LLC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="description" content="Nightfield LLC builds calm, reliable systems, documentation, and modular software structure." />
+  <title>Nightfield LLC</title>
+  <meta name="description" content="Nightfield LLC designs calm, reliable operational systems: documentation, architecture, and modular software structure." />
 
   <style>
-    :root{
+    :root {
       --bgA:#0b0f14;
       --bgB:#141b24;
       --ink:#e8edf6;
       --ink2:rgba(232,237,246,0.72);
       --ink3:rgba(232,237,246,0.55);
       --teal:#48d0d2;
-      --panel:#0f141b;
+      --tealSoft:rgba(72,208,210,0.14);
       --border:rgba(255,255,255,0.08);
+      --panel1:rgba(12,16,22,0.86);
+      --panel2:rgba(10,13,18,0.86);
       --radius:18px;
-      --max:1000px;
+      --max:1040px;
+      --shadowOut:0 20px 60px rgba(0,0,0,0.55);
+      --shadowIn: inset 0 1px 0 rgba(255,255,255,0.08),
+                  inset 0 -1px 0 rgba(0,0,0,0.45),
+                  inset 0 0 0 1px rgba(255,255,255,0.06);
     }
 
     *{box-sizing:border-box;}
+    html,body{height:100%;}
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       color:var(--ink);
-      background:linear-gradient(145deg,var(--bgA),var(--bgB));
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:
+        radial-gradient(1200px 700px at 20% 15%, rgba(30,46,68,0.55), transparent 55%),
+        radial-gradient(900px 520px at 80% 55%, rgba(18,26,38,0.70), transparent 55%),
+        linear-gradient(145deg,var(--bgA),var(--bgB));
+      overflow-x:hidden;
     }
 
+    .wrap{width:min(var(--max),92vw);margin:0 auto;}
     a{color:inherit;text-decoration:none;}
     a:hover{text-decoration:underline;}
 
-    .wrap{width:min(var(--max),92vw);margin:0 auto;}
-
     header{
-      border-bottom:1px solid var(--border);
-      background:rgba(10,13,18,0.85);
-      backdrop-filter:blur(8px);
+      position:sticky; top:0; z-index:10;
+      background:linear-gradient(180deg, rgba(10,13,18,0.88), rgba(10,13,18,0.55));
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
     }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
+    .brand{display:flex;align-items:center;gap:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:650;font-size:0.95rem;color:rgba(232,237,246,0.88);}
+    .brand img{height:34px;width:34px;border-radius:12px;}
+    nav a{
+      color:var(--ink3);
       font-weight:650;
-      font-size:0.9rem;
-    }
-
-    .brand img{height:34px;}
-
-    main{padding:60px 0 40px;}
-
-    .panel{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:32px;
-      margin-bottom:26px;
-    }
-
-    h1{
-      margin:0 0 14px;
-      font-size:clamp(28px,3.2vw,44px);
-      letter-spacing:-0.02em;
-    }
-
-    p{color:var(--ink2);max-width:60ch;}
-
-    .btn{
-      display:inline-block;
-      margin-top:18px;
-      padding:12px 18px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,0.04);
       letter-spacing:0.08em;
       text-transform:uppercase;
-      font-size:0.8rem;
-      font-weight:700;
+      font-size:0.80rem;
+      padding:10px 12px;
+      border-radius:14px;
+    }
+    nav a:hover{
+      color:rgba(232,237,246,0.90);
+      background:rgba(255,255,255,0.04);
+      box-shadow:var(--shadowIn);
+      border:1px solid rgba(255,255,255,0.06);
+      text-decoration:none;
     }
 
-    footer{
-      border-top:1px solid var(--border);
-      padding:26px 0 36px;
-      color:var(--ink3);
-      font-size:0.85rem;
+    .panel{
+      border-radius:var(--radius);
+      background:linear-gradient(145deg, var(--panel1), var(--panel2));
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:var(--shadowOut), var(--shadowIn);
+      overflow:hidden;
     }
 
-    footer p{max-width:none;}
+    .hero{padding:64px 0 24px;}
+    .hero-grid{display:grid;grid-template-columns:1.25fr 0.75fr;gap:18px;align-items:stretch;}
+    .hero-left{padding:34px 30px;position:relative;}
+    .hero-left:after{
+      content:"";
+      position:absolute;
+      inset:auto auto -140px -140px;
+      width:380px;height:380px;
+      background:radial-gradient(circle at 55% 45%, rgba(72,208,210,0.20), transparent 60%);
+      pointer-events:none;
+      opacity:0.85;
+    }
+    h1{margin:0 0 12px;font-size:clamp(28px,3.2vw,44px);line-height:1.12;letter-spacing:-0.02em;font-weight:700;color:rgba(232,237,246,0.92);text-shadow:0 1px 0 rgba(0,0,0,0.35);}
+    .lead{margin:0 0 22px;color:var(--ink2);font-size:1.05rem;max-width:60ch;}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:16px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.18));
+      box-shadow:var(--shadowIn);
+      color:rgba(232,237,246,0.88);
+      font-weight:750;letter-spacing:0.08em;text-transform:uppercase;font-size:0.82rem;
+    }
+    .btn.primary{
+      border-color:rgba(72,208,210,0.22);
+      background:
+        radial-gradient(140px 80px at 30% 35%, rgba(72,208,210,0.14), transparent 70%),
+        linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.22));
+    }
+    .btn:hover{transform:translateY(-1px);text-decoration:none;color:rgba(232,237,246,0.95);border-color:rgba(255,255,255,0.12);}
+    .btn.primary:hover{border-color:rgba(72,208,210,0.35);}
+    .btn:active{transform:translateY(0px);}
+
+    .hero-right{padding:18px;display:flex;flex-direction:column;gap:12px;}
+    .chip{
+      border-radius:16px;padding:14px 14px 13px;
+      background:rgba(0,0,0,0.18);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:var(--shadowIn);
+    }
+    .chip strong{
+      display:block;font-size:0.86rem;letter-spacing:0.12em;text-transform:uppercase;
+      color:rgba(232,237,246,0.82);margin-bottom:4px;
+    }
+    .chip span{color:var(--ink2);font-size:0.95rem;}
+
+    section{padding:26px 0;}
+    .section-title{margin:0 0 12px;font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(232,237,246,0.62);}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .feature{padding:18px;}
+    .feature h3{margin:0 0 6px;font-size:1.02rem;letter-spacing:-0.01em;color:rgba(232,237,246,0.90);}
+    .feature p{margin:0;color:var(--ink2);font-size:0.97rem;}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;margin-bottom:10px;
+      padding:7px 12px;border-radius:999px;
+      border:1px solid rgba(72,208,210,0.18);
+      background:rgba(72,208,210,0.06);
+      box-shadow:var(--shadowIn);
+      color:rgba(232,237,246,0.86);
+      font-weight:750;letter-spacing:0.10em;text-transform:uppercase;font-size:0.72rem;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px rgba(72,208,210,0.10);}
+
+    .about{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .about p{margin:0;color:var(--ink2);}
+
+    .legal-mini{padding:18px;}
+    .legal-mini p{margin:0;color:var(--ink2);font-size:0.95rem;}
+
+    footer{padding:28px 0 42px;color:rgba(232,237,246,0.52);font-size:0.92rem;}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;}
+
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr;}
+      .grid3{grid-template-columns:1fr;}
+      .about{grid-template-columns:1fr;}
+      nav{display:none;}
+    }
   </style>
-
 </head>
 
 <body>
-
-<header>
-  <div class="wrap nav">
-    <div class="brand">
-      <img src="logo.png" alt="Nightfield LLC logo">
-      Nightfield LLC
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand" aria-label="Nightfield LLC">
+          <img src="logo.png" alt="Nightfield LLC logo" />
+          <div>Nightfield LLC</div>
+        </div>
+        <nav aria-label="Site">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="legal.html">Legal</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <div class="wrap">
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="panel hero-left">
+            <h1>Quiet systems. Clean structure.</h1>
+            <p class="lead">
+              Nightfield LLC designs calm, reliable operational systems with an emphasis on clarity,
+              boundaries, and modular structure.
+            </p>
+            <div class="cta">
+              <a class="btn primary" href="#contact">Contact</a>
+              <a class="btn" href="#services">Services</a>
+            </div>
+          </div>
 
-```
-<section class="panel">
-  <h1>Quiet systems. Clean structure.</h1>
-  <p>
-    Nightfield LLC designs calm, reliable operational systems with an emphasis on
-    clarity, boundaries, and modular structure.
-  </p>
-  <p>
-    The work focuses on documentation, financial system architecture,
-    and software structure that holds under pressure.
-  </p>
-</section>
+          <aside class="panel hero-right" aria-label="Highlights">
+            <div class="chip">
+              <strong>Role</strong>
+              <span>Financial systems architecture & documentation</span>
+            </div>
+            <div class="chip">
+              <strong>Focus</strong>
+              <span>Rules, workflows, permissions, implementation-ready specs</span>
+            </div>
+            <div class="chip">
+              <strong>Style</strong>
+              <span>Minimal, matte, controlled teal accents</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-<section class="panel">
-  <h2 style="margin-top:0;">Legal & Intellectual Property</h2>
+    <section id="services">
+      <div class="wrap">
+        <p class="section-title">Services</p>
+        <div class="grid3">
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Architecture</div>
+            <h3>Modular system design</h3>
+            <p>Define boundaries, module contracts, and failure-safe separation so each part stands on its own.</p>
+          </div>
 
-  <p>
-    © <span id="year"></span> Nightfield LLC. All rights reserved.
-  </p>
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Documentation</div>
+            <h3>Rules that hold up</h3>
+            <p>Locked rule sets, workflows, and plain-English language aligned with real operational behavior.</p>
+          </div>
 
-  <p>
-    Nightfield™, B.I.T.E.™, B.I.T.E. Method™, and related names, frameworks,
-    and system concepts are trademarks or trademark claims of Nightfield LLC.
-  </p>
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Build support</div>
+            <h3>Developer handoff</h3>
+            <p>Translate business logic into schema-ready requirements, permission matrices, and edge-case coverage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p>
-    All site content, system structures, written material, and conceptual frameworks
-    are the intellectual property of Nightfield LLC unless otherwise stated.
-    Unauthorized use, reproduction, or distribution is prohibited.
-  </p>
+    <section id="about">
+      <div class="wrap">
+        <p class="section-title">About</p>
+        <div class="panel about">
+          <div>
+            <h3 style="margin:0 0 8px; letter-spacing:0.04em;">Nightfield LLC</h3>
+            <p>
+              Nightfield builds the structure underneath: the logic, rules, and architecture that keep systems calm,
+              consistent, and scalable.
+            </p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 8px; letter-spacing:0.04em;">What you can expect</h3>
+            <p>
+              Clear decisions, restrained design, and documentation that developers can implement without guessing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p>
-    This website is provided for informational purposes only and does not constitute
-    legal, accounting, or tax advice.
-  </p>
+    <section id="contact">
+      <div class="wrap">
+        <p class="section-title">Contact</p>
+        <div class="panel" style="padding:22px;">
+          <p style="margin:0 0 10px; color:var(--ink2);">
+            Email is the fastest way to reach Nightfield.
+          </p>
+          <p style="margin:0 0 12px;">
+            <strong style="letter-spacing:0.08em; text-transform:uppercase; font-size:0.82rem; color:rgba(232,237,246,0.80);">Website</strong><br/>
+            <a href="https://cloverbks.com" target="_blank" rel="noopener" style="color:rgba(232,237,246,0.88);">cloverbks.com</a>
+          </p>
+          <p style="margin:0;">
+            <strong style="letter-spacing:0.08em; text-transform:uppercase; font-size:0.82rem; color:rgba(232,237,246,0.80);">Email</strong><br/>
+            <a href="mailto:cbailey@cloverbks.com" style="color:rgba(232,237,246,0.88);">cbailey@cloverbks.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <p>
-    Contact:
-    <a href="mailto:cbailey@cloverbks.com">cbailey@cloverbks.com</a>
-  </p>
-</section>
-```
+    <section id="legal-mini">
+      <div class="wrap">
+        <div class="panel legal-mini">
+          <p>
+            © <span id="y"></span> Nightfield LLC · Nightfield™, B.I.T.E.™, and B.I.T.E. Method™ are trademarks or trademark claims of Nightfield LLC.
+            <a href="legal.html" style="margin-left:10px; color:rgba(232,237,246,0.88); text-decoration:underline;">Legal</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  </div>
-</main>
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <div>© <span id="y2"></span> Nightfield LLC</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="legal.html">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<footer>
-  <div class="wrap">
-    <p>
-      © <span id="year2"></span> Nightfield LLC · All rights reserved
-    </p>
-  </div>
-</footer>
-
-<script>
-  const y = new Date().getFullYear();
-  document.getElementById("year").textContent = y;
-  document.getElementById("year2").textContent = y;
-</script>
-
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
+  </script>
 </body>
 </html>
