@@ -69,12 +69,17 @@
       text-decoration:none;
     }
 
-    .panel{
-      border-radius:var(--radius);
-      background:linear-gradient(145deg, var(--panel1), var(--panel2));
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:var(--shadowOut), var(--shadowIn);
-      overflow:hidden;
+.panel{
+  border-radius:var(--radius);
+  background:linear-gradient(145deg, var(--panel1), var(--panel2));
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 0 0 1px rgba(72,208,210,0.10),
+    0 0 0 4px rgba(72,208,210,0.05),
+    var(--shadowOut),
+    var(--shadowIn);
+  overflow:hidden;
+
     }
 
     .hero{padding:64px 0 24px;}
