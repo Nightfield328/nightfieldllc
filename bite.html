@@ -1,0 +1,842 @@
+# Nightfield B.I.T.E. website code
+
+Below are the two full HTML files to add the B.I.T.E. presentation to your Nightfield website.
+
+---
+
+## index.html section version
+
+Paste this into your Nightfield homepage and adjust the nav link if needed.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nightfield LLC</title>
+  <meta name="description" content="Nightfield LLC designs calm, reliable operational systems, including B.I.T.E., a financial operations system for food and beverage businesses." />
+
+  <style>
+    :root {
+      --bgA:#0b0f14;
+      --bgB:#141b24;
+      --ink:#e8edf6;
+      --ink2:rgba(232,237,246,0.75);
+      --ink3:rgba(232,237,246,0.56);
+      --teal:#48d0d2;
+      --tealSoft:rgba(72,208,210,0.14);
+      --border:rgba(255,255,255,0.08);
+      --panel1:rgba(12,16,22,0.86);
+      --panel2:rgba(10,13,18,0.86);
+      --radius:18px;
+      --shadow:0 14px 40px rgba(0,0,0,0.30);
+      --max:1100px;
+    }
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(72,208,210,0.08), transparent 30%),
+        linear-gradient(180deg, var(--bgB), var(--bgA));
+      line-height:1.6;
+    }
+
+    a { color:inherit; text-decoration:none; }
+
+    .wrap {
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+    }
+
+    .site-header {
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(14px);
+      background:rgba(9,12,17,0.72);
+      border-bottom:1px solid var(--border);
+    }
+
+    .site-header .wrap {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .brand {
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-size:0.92rem;
+    }
+
+    .nav {
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav a {
+      color:var(--ink2);
+      font-size:0.95rem;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color:var(--ink);
+    }
+
+    .hero {
+      padding:88px 0 64px;
+    }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .panel {
+      background:linear-gradient(180deg, var(--panel1), var(--panel2));
+      border:1px solid var(--border);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-copy {
+      padding:38px;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--teal);
+      margin-bottom:14px;
+    }
+
+    h1, h2, h3 {
+      margin:0 0 14px;
+      line-height:1.12;
+      letter-spacing:-0.02em;
+    }
+
+    h1 {
+      font-size:clamp(2.3rem, 5vw, 4.4rem);
+      max-width:10ch;
+    }
+
+    h2 {
+      font-size:clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    h3 {
+      font-size:1.15rem;
+    }
+
+    p {
+      margin:0 0 16px;
+      color:var(--ink2);
+      font-size:1rem;
+    }
+
+    .hero-copy p:last-of-type { margin-bottom:0; }
+
+    .hero-side {
+      padding:28px;
+      display:grid;
+      gap:14px;
+    }
+
+    .mini-card {
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(255,255,255,0.02);
+    }
+
+    .mini-card strong {
+      display:block;
+      margin-bottom:6px;
+      color:var(--ink);
+    }
+
+    .cta-row {
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-weight:600;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform:translateY(-1px);
+      border-color:rgba(72,208,210,0.45);
+    }
+
+    .btn-primary {
+      background:rgba(72,208,210,0.12);
+      color:var(--ink);
+    }
+
+    .btn-secondary {
+      background:transparent;
+      color:var(--ink2);
+    }
+
+    section {
+      padding:28px 0 64px;
+    }
+
+    .section-intro {
+      max-width:760px;
+      margin-bottom:26px;
+    }
+
+    .bite-anchor {
+      scroll-margin-top:100px;
+    }
+
+    .grid-4 {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .card {
+      padding:24px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .card p:last-child,
+    .vision p:last-child { margin-bottom:0; }
+
+    .card-tag {
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--teal);
+      font-size:0.76rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+    }
+
+    .vision {
+      margin-top:22px;
+      padding:28px;
+    }
+
+    .bullet-list {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:10px 18px;
+      margin:22px 0 0;
+      padding:0;
+      list-style:none;
+    }
+
+    .bullet-list li {
+      color:var(--ink2);
+      padding-left:16px;
+      position:relative;
+    }
+
+    .bullet-list li::before {
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--teal);
+      position:absolute;
+      left:0;
+      top:0.7em;
+      transform:translateY(-50%);
+    }
+
+    .footer {
+      padding:24px 0 42px;
+      color:var(--ink3);
+      font-size:0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-4,
+      .bullet-list {
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-grid > *:first-child {
+        grid-column:1 / -1;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-header .wrap,
+      .nav,
+      .cta-row {
+        align-items:flex-start;
+      }
+
+      .site-header .wrap {
+        flex-direction:column;
+      }
+
+      .hero {
+        padding:54px 0 34px;
+      }
+
+      .hero-copy,
+      .hero-side,
+      .card,
+      .vision {
+        padding:22px;
+      }
+
+      .hero-grid,
+      .grid-4,
+      .bullet-list {
+        grid-template-columns:1fr;
+      }
+
+      h1 {
+        max-width:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Nightfield LLC</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="#bite">B.I.T.E.</a>
+        <a href="bite.html">Full B.I.T.E. Page</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="panel hero-copy">
+          <span class="eyebrow">Calm structure for complex operations</span>
+          <h1>Nightfield designs reliable systems that hold up under real work.</h1>
+          <p>Nightfield focuses on calm, defensible operational structure, especially where records, workflow, and accountability tend to break down under pressure.</p>
+          <p>B.I.T.E. is part of that vision: a financial operations system designed for food and beverage businesses that need bookkeeping, inventory, taxes, and events to connect cleanly.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="bite.html">Explore B.I.T.E.</a>
+            <a class="btn btn-secondary" href="#bite">See the overview</a>
+          </div>
+        </div>
+
+        <aside class="panel hero-side" aria-label="Key system themes">
+          <div class="mini-card">
+            <strong>Traceable financial reporting</strong>
+            <p>Results should be explainable from source to report, not guessed at later.</p>
+          </div>
+          <div class="mini-card">
+            <strong>Connected workflows</strong>
+            <p>Operations and accounting should support each other instead of creating duplicate work.</p>
+          </div>
+          <div class="mini-card">
+            <strong>Built for evolving tax rules</strong>
+            <p>The structure should still hold when tax law changes and reporting requirements shift.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="bite" class="bite-anchor">
+      <div class="wrap">
+        <div class="section-intro">
+          <span class="eyebrow">Financial operations software for food and beverage businesses</span>
+          <h2>B.I.T.E. is Nightfield’s financial operations system for food and beverage businesses.</h2>
+          <p>B.I.T.E. stands for <strong>Bookkeeping, Inventory, Taxes, and Events</strong> — four connected parts of one system designed to reduce confusion, improve accountability, and help breweries, wineries, bars, and other operators keep cleaner records from day-to-day operations through reporting.</p>
+          <p>Instead of forcing businesses to patch together disconnected tools, B.I.T.E. is being designed to connect operational activity to cleaner financial records, stronger reporting, and less chaos at month-end and tax time.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <span class="card-tag">Bookkeeping</span>
+            <h3>Cleaner records and stronger closes</h3>
+            <p>Built to support reconciliations, review, and dependable financial visibility with a solid bookkeeping foundation underneath the rest of the system.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Inventory</span>
+            <h3>Operational movement tied back to cost</h3>
+            <p>Designed to improve the relationship between receiving, purchasing, inventory tracking, and the accounting impact that follows.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Taxes</span>
+            <h3>Tax-ready reporting that is traceable</h3>
+            <p>Tax outcomes should not be a black box. B.I.T.E. is designed so results can be followed back to source documents, transactions, classifications, and treatment logic.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Events</span>
+            <h3>Event revenue with clearer follow-through</h3>
+            <p>Connect event activity to invoicing, tracking, and reporting so revenue-producing operations are not left in manual cleanup mode later.</p>
+          </article>
+        </div>
+
+        <div class="panel vision">
+          <span class="eyebrow">Why it matters</span>
+          <h2>Built for calm, clarity, and accountability.</h2>
+          <p>B.I.T.E. is not just another bookkeeping app. It is a structured system for businesses that need workflows to connect, reporting to be traceable, records to be understandable, and errors to be visible before they spread.</p>
+          <ul class="bullet-list">
+            <li>Connected workflows</li>
+            <li>Cleaner audit trails</li>
+            <li>Source-based reporting</li>
+            <li>Better month-end visibility</li>
+            <li>Tax-ready records</li>
+            <li>Less hidden operational drift</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="bite.html">Read the full B.I.T.E. page</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Nightfield LLC — operational systems with structure first.</p>
+    </div>
+  </footer>
+</body>
+</html>
+```
+
+---
+
+## bite.html full page
+
+Create a new file named `bite.html` in the same folder as your homepage.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B.I.T.E. | Financial Operations Software for Food & Beverage Businesses | Nightfield</title>
+  <meta name="description" content="B.I.T.E. is Nightfield’s financial operations system for food and beverage businesses, built around bookkeeping, inventory, taxes, and events to create cleaner records and stronger reporting." />
+
+  <style>
+    :root {
+      --bgA:#0b0f14;
+      --bgB:#141b24;
+      --ink:#e8edf6;
+      --ink2:rgba(232,237,246,0.75);
+      --ink3:rgba(232,237,246,0.56);
+      --teal:#48d0d2;
+      --tealSoft:rgba(72,208,210,0.14);
+      --border:rgba(255,255,255,0.08);
+      --panel1:rgba(12,16,22,0.86);
+      --panel2:rgba(10,13,18,0.86);
+      --radius:18px;
+      --shadow:0 14px 40px rgba(0,0,0,0.30);
+      --max:1080px;
+    }
+
+    * { box-sizing:border-box; }
+
+    body {
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(72,208,210,0.08), transparent 30%),
+        linear-gradient(180deg, var(--bgB), var(--bgA));
+      line-height:1.65;
+    }
+
+    a { color:inherit; text-decoration:none; }
+
+    .wrap {
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+    }
+
+    .site-header {
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(14px);
+      background:rgba(9,12,17,0.72);
+      border-bottom:1px solid var(--border);
+    }
+
+    .site-header .wrap {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .brand {
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      font-size:0.92rem;
+    }
+
+    .nav {
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav a {
+      color:var(--ink2);
+      font-size:0.95rem;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color:var(--ink);
+    }
+
+    .hero {
+      padding:72px 0 28px;
+    }
+
+    .hero-panel,
+    .section-panel,
+    .card {
+      background:linear-gradient(180deg, var(--panel1), var(--panel2));
+      border:1px solid var(--border);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-panel {
+      padding:38px;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--teal);
+      margin-bottom:14px;
+    }
+
+    h1, h2, h3 {
+      margin:0 0 14px;
+      line-height:1.14;
+      letter-spacing:-0.02em;
+    }
+
+    h1 {
+      font-size:clamp(2.2rem, 5vw, 4rem);
+      max-width:12ch;
+    }
+
+    h2 {
+      font-size:clamp(1.6rem, 3vw, 2.6rem);
+    }
+
+    h3 {
+      font-size:1.18rem;
+    }
+
+    p {
+      margin:0 0 16px;
+      color:var(--ink2);
+      font-size:1rem;
+    }
+
+    section {
+      padding:18px 0 26px;
+    }
+
+    .lede {
+      font-size:1.06rem;
+      max-width:74ch;
+    }
+
+    .two-col {
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .section-panel {
+      padding:28px;
+    }
+
+    .list {
+      margin:18px 0 0;
+      padding-left:20px;
+      color:var(--ink2);
+    }
+
+    .list li { margin:0 0 10px; }
+
+    .grid-2 {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .card {
+      padding:24px;
+      border-radius:22px;
+    }
+
+    .card-tag {
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--teal);
+      font-size:0.76rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+    }
+
+    .cta-row {
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-weight:600;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform:translateY(-1px);
+      border-color:rgba(72,208,210,0.45);
+    }
+
+    .btn-primary {
+      background:rgba(72,208,210,0.12);
+    }
+
+    .btn-secondary {
+      color:var(--ink2);
+    }
+
+    .footer {
+      padding:24px 0 42px;
+      color:var(--ink3);
+      font-size:0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .two-col,
+      .grid-2 {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-header .wrap {
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero {
+        padding-top:54px;
+      }
+
+      .hero-panel,
+      .section-panel,
+      .card {
+        padding:22px;
+      }
+
+      h1 {
+        max-width:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Nightfield LLC</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="bite.html">B.I.T.E.</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-panel">
+          <span class="eyebrow">Financial operations software for food and beverage businesses</span>
+          <h1>B.I.T.E. is a financial operations system for food and beverage businesses.</h1>
+          <p class="lede">B.I.T.E. is Nightfield’s long-term platform vision for businesses that need accounting and operations to work together instead of fighting each other. Built around <strong>Bookkeeping, Inventory, Taxes, and Events</strong>, B.I.T.E. is designed to help food and beverage businesses create cleaner workflows, more traceable records, and stronger financial control from the ground up.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="index.html">Back to Nightfield</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div class="section-panel">
+          <span class="eyebrow">Who it is for</span>
+          <h2>Built with real operating environments in mind.</h2>
+          <p>B.I.T.E. is being designed with businesses like these in mind: breweries, wineries, bars, taprooms, bottle shops, tasting rooms, and food and beverage operators dealing with inventory, events, invoicing, and complex financial handoffs.</p>
+          <p>These businesses often need more than bookkeeping alone. They need a structure that can connect daily activity to financial truth without burying important detail.</p>
+        </div>
+
+        <div class="section-panel">
+          <span class="eyebrow">The problem</span>
+          <h2>Disconnected systems create preventable pressure.</h2>
+          <ul class="list">
+            <li>Numbers do not tie back cleanly</li>
+            <li>Data gets entered more than once</li>
+            <li>Reporting slows down at month-end</li>
+            <li>Departments lose the handoff between operations and accounting</li>
+            <li>Tax outcomes become hard to explain later</li>
+            <li>Event revenue requires manual cleanup after the fact</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-panel" style="margin-bottom:18px;">
+          <span class="eyebrow">The four layers of B.I.T.E.</span>
+          <h2>One system. Four connected layers.</h2>
+          <p>Each part is meant to strengthen the next, from source documents and transactions to reporting and review.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <span class="card-tag">1. Bookkeeping</span>
+            <h3>A dependable financial foundation</h3>
+            <p>Clean books support reporting, tax work, and better business decisions. B.I.T.E. is being designed with a strong bookkeeping core so transactions, reconciliations, reporting, and review have a dependable structure underneath them.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">2. Inventory</span>
+            <h3>Operational movement tied to financial impact</h3>
+            <p>Inventory affects margins, purchasing, cost visibility, and operational control. B.I.T.E. is being designed to improve the relationship between receiving, inventory movement, and accounting so businesses can reduce blind spots and understand what activity is actually driving cost.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">3. Taxes</span>
+            <h3>Traceable tax-ready reporting</h3>
+            <p>Tax reporting should not feel like a black box. As tax rules change, businesses need records that show where numbers came from. B.I.T.E. is being designed so tax outcomes can be followed back to underlying transactions, source documents, classifications, and treatment logic.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">4. Events</span>
+            <h3>Revenue activity with cleaner follow-through</h3>
+            <p>Events create revenue opportunities, but they also create operational and accounting complexity. B.I.T.E. is being designed to connect event activity to invoicing, follow-through, and financial reporting so businesses can manage event revenue with more clarity and less manual cleanup.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div class="section-panel">
+          <span class="eyebrow">Why Nightfield is building it</span>
+          <h2>Financial truth should be traceable.</h2>
+          <p>Nightfield is focused on calm, reliable operational systems. B.I.T.E. reflects that philosophy by treating financial structure as something that should be understandable, defensible, and actually useful under real business conditions.</p>
+          <p>Businesses should be able to follow outcomes back to their source instead of guessing how a number appeared on a report.</p>
+        </div>
+
+        <div class="section-panel">
+          <span class="eyebrow">Search-friendly value</span>
+          <h2>Designed around real business needs.</h2>
+          <ul class="list">
+            <li>Food and beverage bookkeeping software structure</li>
+            <li>Inventory and accounting workflow connection</li>
+            <li>Tax-ready records for growing businesses</li>
+            <li>Event revenue tracking and invoicing support</li>
+            <li>Cleaner audit trails and source-based reporting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-panel">
+          <span class="eyebrow">Long-term vision</span>
+          <h2>Modular growth without losing control.</h2>
+          <p>The long-term vision for B.I.T.E. is a modular platform where businesses can start with the parts they need and expand over time without losing clarity or system authority. Each module should strengthen the next, from source documents and transactions to reporting and review.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="index.html">Return to Nightfield</a>
+            <a class="btn btn-secondary" href="mailto:hello@nightfieldllc.com">Ask about the vision</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Nightfield LLC — B.I.T.E. stands for Bookkeeping, Inventory, Taxes, and Events.</p>
+    </div>
+  </footer>
+</body>
+</html>
+```
+
+---
+
+## What to do next
+
+1. Add the homepage section where you want it inside your current Nightfield homepage.
+2. Save the second file as `bite.html`.
+3. Change `hello@nightfieldllc.com` if you want a different contact address.
+4. Add a homepage nav link to `bite.html` if your current header is different.
+5. Later, build supporting pages like `/bite/bookkeeping`, `/bite/inventory`, `/bite/taxes`, and `/bite/events` for better SEO depth.
+
+## My blunt note
+
+This is a strong starting point, but traffic will come from supporting content too, not just one landing page. The page is now positioned correctly for both branding and search.
