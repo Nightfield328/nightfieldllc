@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nightfield LLC</title>
-  <meta name="description" content="Nightfield LLC designs calm, reliable operational systems: documentation, architecture, and modular software structure." />
+  <meta name="description" content="Nightfield LLC designs calm, reliable operational systems: documentation, architecture, and modular software structure. B.I.T.E. is Nightfield’s financial operations system for food and beverage businesses." />
 
   <style>
     :root {
@@ -69,17 +69,16 @@
       text-decoration:none;
     }
 
-.panel{
-  border-radius:var(--radius);
-  background:linear-gradient(145deg, var(--panel1), var(--panel2));
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:
-    0 0 0 1px rgba(72,208,210,0.10),
-    0 0 0 4px rgba(72,208,210,0.05),
-    var(--shadowOut),
-    var(--shadowIn);
-  overflow:hidden;
-
+    .panel{
+      border-radius:var(--radius);
+      background:linear-gradient(145deg, var(--panel1), var(--panel2));
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 0 0 1px rgba(72,208,210,0.10),
+        0 0 0 4px rgba(72,208,210,0.05),
+        var(--shadowOut),
+        var(--shadowIn);
+      overflow:hidden;
     }
 
     .hero{padding:64px 0 24px;}
@@ -95,6 +94,7 @@
       opacity:0.85;
     }
     h1{margin:0 0 12px;font-size:clamp(28px,3.2vw,44px);line-height:1.12;letter-spacing:-0.02em;font-weight:700;color:rgba(232,237,246,0.92);text-shadow:0 1px 0 rgba(0,0,0,0.35);}
+    h2{margin:0 0 12px;font-size:clamp(24px,2.6vw,34px);line-height:1.15;letter-spacing:-0.02em;color:rgba(232,237,246,0.92);}
     .lead{margin:0 0 22px;color:var(--ink2);font-size:1.05rem;max-width:60ch;}
 
     .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
@@ -134,6 +134,7 @@
     .section-title{margin:0 0 12px;font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(232,237,246,0.62);}
 
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
     .feature{padding:18px;}
     .feature h3{margin:0 0 6px;font-size:1.02rem;letter-spacing:-0.01em;color:rgba(232,237,246,0.90);}
     .feature p{margin:0;color:var(--ink2);font-size:0.97rem;}
@@ -152,6 +153,14 @@
     .about{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
     .about p{margin:0;color:var(--ink2);}
 
+    .bite-intro{padding:24px;}
+    .bite-intro p{margin:0 0 14px;color:var(--ink2);}
+    .bite-intro p:last-child{margin-bottom:0;}
+
+    .vision-box{padding:22px;}
+    .vision-box p{margin:0 0 12px;color:var(--ink2);}
+    .vision-box p:last-child{margin-bottom:0;}
+
     .legal-mini{padding:18px;}
     .legal-mini p{margin:0;color:var(--ink2);font-size:0.95rem;}
 
@@ -161,6 +170,7 @@
     @media (max-width:900px){
       .hero-grid{grid-template-columns:1fr;}
       .grid3{grid-template-columns:1fr;}
+      .grid4{grid-template-columns:1fr;}
       .about{grid-template-columns:1fr;}
       nav{display:none;}
     }
@@ -178,6 +188,7 @@
         <nav aria-label="Site">
           <a href="#services">Services</a>
           <a href="#about">About</a>
+          <a href="#bite">B.I.T.E.</a>
           <a href="#contact">Contact</a>
           <a href="legal.html">Legal</a>
         </nav>
@@ -196,7 +207,7 @@
               boundaries, and modular structure.
             </p>
             <div class="cta">
-              <a class="btn primary" href="#contact">Contact</a>
+              <a class="btn primary" href="#bite">Explore B.I.T.E.</a>
               <a class="btn" href="#services">Services</a>
             </div>
           </div>
@@ -265,6 +276,59 @@
       </div>
     </section>
 
+    <section id="bite">
+      <div class="wrap">
+        <p class="section-title">B.I.T.E.</p>
+
+        <div class="panel bite-intro" style="margin-bottom:14px;">
+          <div class="pill"><span class="dot"></span> Financial operations system</div>
+          <h2>B.I.T.E. is Nightfield’s financial operations system for food and beverage businesses.</h2>
+          <p>
+            B.I.T.E. stands for <strong>Bookkeeping, Inventory, Taxes, and Events</strong> — four connected parts of one system designed to reduce confusion, improve accountability, and help breweries, wineries, bars, and other operators keep cleaner records from day-to-day operations through reporting.
+          </p>
+          <p>
+            Instead of forcing businesses to patch together disconnected tools, B.I.T.E. is being designed to connect operational activity to cleaner financial records, stronger reporting, and less chaos at month-end and tax time.
+          </p>
+        </div>
+
+        <div class="grid4" style="margin-bottom:14px;">
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Bookkeeping</div>
+            <h3>Cleaner records and stronger closes</h3>
+            <p>Built to support reconciliations, review, and dependable financial visibility with a solid bookkeeping foundation underneath the rest of the system.</p>
+          </div>
+
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Inventory</div>
+            <h3>Operational movement tied back to cost</h3>
+            <p>Designed to improve the relationship between receiving, purchasing, inventory tracking, and the accounting impact that follows.</p>
+          </div>
+
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Taxes</div>
+            <h3>Tax-ready reporting that is traceable</h3>
+            <p>Tax outcomes should not be a black box. B.I.T.E. is designed so results can be followed back to source documents, transactions, classifications, and treatment logic.</p>
+          </div>
+
+          <div class="panel feature">
+            <div class="pill"><span class="dot"></span> Events</div>
+            <h3>Event revenue with clearer follow-through</h3>
+            <p>Connect event activity to invoicing, tracking, and reporting so revenue-producing operations are not left in manual cleanup mode later.</p>
+          </div>
+        </div>
+
+        <div class="panel vision-box">
+          <h3 style="margin:0 0 8px;">Built for calm, clarity, and accountability.</h3>
+          <p>
+            B.I.T.E. is not just another bookkeeping app. It is a structured system for businesses that need workflows to connect, reporting to be traceable, records to be understandable, and errors to be visible before they spread.
+          </p>
+          <p>
+            <a href="bite.html" style="color:rgba(232,237,246,0.90); text-decoration:underline;">Read the full B.I.T.E. page</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="wrap">
         <p class="section-title">Contact</p>
@@ -303,6 +367,7 @@
         <div style="display:flex; gap:14px; flex-wrap:wrap;">
           <a href="#services">Services</a>
           <a href="#about">About</a>
+          <a href="#bite">B.I.T.E.</a>
           <a href="#contact">Contact</a>
           <a href="legal.html">Legal</a>
         </div>
