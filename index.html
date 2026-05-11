@@ -86,8 +86,8 @@
     }
 
     .hero{padding:64px 0 24px;}
-    .hero-grid{display:grid;grid-template-columns:1.25fr 0.75fr;gap:18px;align-items:stretch;}
-    .hero-left{padding:34px 30px;position:relative;}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;justify-items:center;}
+    .hero-left{padding:34px 30px;position:relative;text-align:center;max-width:600px;}
     .hero-left:after{
       content:"";
       position:absolute;
@@ -121,7 +121,7 @@
     .btn.primary:hover{border-color:rgba(72,208,210,0.35);}
     .btn:active{transform:translateY(0px);}
 
-    .hero-right{padding:18px;display:flex;flex-direction:column;gap:12px;}
+    .hero-right{padding:18px;display:flex;flex-direction:column;gap:12px;width:100%;max-width:500px;}
     .chip{
       border-radius:16px;padding:14px 14px 13px;
       background:rgba(0,0,0,0.18);
@@ -209,6 +209,7 @@
               Nightfield LLC designs calm, reliable operational systems with an emphasis on clarity,
               boundaries, and modular structure.
             </p>
+          </div>
           
           <aside class="panel hero-right" aria-label="Highlights">
             <div class="chip">
@@ -292,10 +293,6 @@
     </div>
   </div>
 </section>
-      </div>
-  
-      </div>
-    </section>
 
     <section id="legal-mini">
       <div class="wrap">
