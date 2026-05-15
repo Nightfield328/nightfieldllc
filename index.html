@@ -37,19 +37,55 @@
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.75) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.35) 1px, transparent 1.5px);
-      background-size: 96px 96px, 142px 142px;
-      background-position: 10px 20px, 42px 64px;
-      opacity: .28;
-    }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+  opacity: 0.45;
+}
+
+body::before {
+  background-image:
+    radial-gradient(circle at 7% 12%, rgba(255,255,255,.80) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 19% 44%, rgba(255,255,255,.45) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 31% 18%, rgba(255,255,255,.70) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 47% 72%, rgba(255,255,255,.55) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 62% 33%, rgba(255,255,255,.78) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 76% 58%, rgba(255,255,255,.42) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 88% 21%, rgba(255,255,255,.68) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 94% 84%, rgba(255,255,255,.48) 0 1px, transparent 1.7px);
+  background-size: 420px 360px;
+  animation: twinkleSlow 7s ease-in-out infinite alternate;
+}
+
+body::after {
+  background-image:
+    radial-gradient(circle at 11% 78%, rgba(255,255,255,.60) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 25% 29%, rgba(255,255,255,.38) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 39% 91%, rgba(255,255,255,.75) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 54% 14%, rgba(255,255,255,.44) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 69% 67%, rgba(255,255,255,.82) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 83% 40%, rgba(255,255,255,.50) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 97% 9%, rgba(255,255,255,.66) 0 1px, transparent 1.8px);
+  background-size: 610px 520px;
+  animation: twinkleFast 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes twinkleSlow {
+  0% { opacity: .22; transform: translate3d(0, 0, 0); }
+  50% { opacity: .48; }
+  100% { opacity: .30; transform: translate3d(-6px, 4px, 0); }
+}
+
+@keyframes twinkleFast {
+  0% { opacity: .12; transform: translate3d(0, 0, 0); }
+  45% { opacity: .38; }
+  100% { opacity: .20; transform: translate3d(5px, -3px, 0); }
+}
 
     a { color: inherit; text-decoration: none; }
 
@@ -307,15 +343,11 @@
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Nightfield home">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <img src="logo.png" alt="Nightfield LLC logo" class="brand-logo">
         <span>Nightfield LLC</span>
       </a>
       <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#access">Professional Access</a>
-        <a href="#bite">B.I.T.E.™</a>
-        <a href="#principles">Principles</a>
-        <a href="#about">About</a>
+        <a href="#access">Professional</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -354,11 +386,7 @@
             <p>Readable, maintainable reference materials that support decision-making and continuity.</p>
             <div class="pill-row"><span class="pill">Docs</span><span class="pill">Continuity</span></div>
           </article>
-          <article class="card work-card">
-            <h3>Interface Concepts</h3>
-            <p>Calm public and private-facing screens built around hierarchy, restraint, and ease of use.</p>
-            <div class="pill-row"><span class="pill">UX</span><span class="pill">Low Noise</span></div>
-          </article>
+     
         </div>
       </div>
     </section>
@@ -374,17 +402,11 @@
         </div>
         <div class="grid-2">
           <article class="card access-card">
-            <h3>Portfolio</h3>
-            <p>Access to the portfolio app and related professional materials.</p>
+            <h3>Professional</h3>
+            <p>Portfolio & Resume Access </p>
             <div class="pill-row"><span class="pill violet">Password Protected</span></div>
             <a class="btn btn-secondary" href="#" aria-label="Portfolio access placeholder">Open Portfolio</a>
-          </article>
-          <article class="card access-card">
-            <h3>Resume</h3>
-            <p>Access to resume, work history, credentials, and downloadable materials.</p>
-            <div class="pill-row"><span class="pill violet">Password Protected</span></div>
-            <a class="btn btn-secondary" href="#" aria-label="Resume access placeholder">Open Resume</a>
-          </article>
+     
         </div>
       </div>
     </section>
@@ -392,72 +414,74 @@
     <section id="bite">
       <div class="container">
         <article class="card bite-minimal">
-          <div class="panel-title">Private Project</div>
+          <div class="panel-title">Active Build</div>
           <h2>B.I.T.E.™</h2>
-          <p>A private workflow project currently in design and development.</p>
+          <p>A workflow project currently in the design and development stage.</p>
         </article>
       </div>
     </section>
 
     <section id="principles">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="panel-title">Principles</div>
-            <h2>Simple is the standard.</h2>
-          </div>
-          <p>Nightfield favors clarity, restraint, and systems that make complex work easier to navigate.</p>
-        </div>
-        <div class="grid-4">
-          <article class="card principle">
-            <h3>Efficient simplicity</h3>
-            <p>Simplicity is built through strong structure, not by adding noise.</p>
-          </article>
-          <article class="card principle">
-            <h3>No training required</h3>
-            <p>The standard is orientation, not extensive training.</p>
-          </article>
-          <article class="card principle">
-            <h3>Reduce cognitive load</h3>
-            <p>If a feature does not reduce confusion, time, or ambiguity, it does not belong yet.</p>
-          </article>
-          <article class="card principle">
-            <h3>Clear next steps</h3>
-            <p>Good systems make the next useful action easier to see.</p>
-          </article>
-        </div>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="panel-title">Principles</div>
+        <h2>Simple is the standard.</h2>
       </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <article class="card">
-          <div class="panel-title">About</div>
-          <h2>Nightfield LLC</h2>
-          <p style="margin-top:14px; max-width:760px;">Nightfield LLC is a small systems and software-design studio focused on clear structure, calm interfaces, and tools that reduce cognitive load.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <article class="card contact-card">
-          <div>
-            <div class="panel-title">Contact</div>
-            <h2>Quiet systems. Clear work.</h2>
-            <p style="margin-top:10px;">For professional inquiries, use the contact email below.</p>
-          </div>
-          <a class="btn btn-primary" href="mailto:hello@nightfieldllc.com">hello@nightfieldllc.com</a>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <span>© 2026 Nightfield LLC. All rights reserved.</span>
-      <span><a href="legal.html">Legal</a></span>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <article class="card">
+      <div class="panel-title">About</div>
+      <h2>Nightfield LLC</h2>
+      <p style="margin-top:14px; max-width:760px;">Nightfield LLC is a small systems and software-design studio focused on clear structure, calm interfaces, and tools that reduce cognitive load.</p>
+    </article>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <article class="card contact-card">
+      <div>
+        <div class="panel-title">Contact</div>
+        <h2>Quiet systems. Clear work.</h2>
+        <p style="margin-top:10px;">For professional inquiries, use the contact email below.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:cbailey@cloverbks.com">cbailey@cloverbks.com</a>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Nightfield LLC. All rights reserved.</span>
+    <span><a href="legal.html">Legal</a></span>
+  </div>
+</footer>
+
+<script>
+  function openProfessionalAccess() {
+    const PROFESSIONAL_PASSWORD = "N1ght*42!!";
+    const destination = "professional.html";
+
+    const input = prompt("Professional Access:");
+
+    if (input === null) {
+      return;
+    }
+
+    if (input !== PROFESSIONAL_PASSWORD) {
+      alert("Access denied.");
+      return;
+    }
+
+    window.location.href = destination;
+  }
+</script>
 </body>
 </html>
+ 
